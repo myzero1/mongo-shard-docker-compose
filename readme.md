@@ -8,12 +8,12 @@ Heavily inspired by [https://github.com/jfollenfant/mongodb-sharding-docker-comp
 
 ### Mongo Components
 
-* Config Server (3 member replica set): `config01`,`config02`,`config03`
+* Config Server (2 member replica set): `config01`,`config02`
 * 3 Shards (each a 2 member replica set):
 	* `shard01a`,`shard01b`
 	* `shard02a`,`shard02b`
 	* `shard03a`,`shard03b`
-* 1 Router (mongos): `router`
+* 2 Router (mongos): `router01`，`router02`
 * (TODO): DB data persistence using docker data volumes
 
 ### First Run (initial setup)
@@ -69,6 +69,9 @@ Its as simple as:
 
 ```
 docker-compose exec router mongo
+docker-compose exec router01 mongo
+docker-compose exec router01 mongo --port 27017
+docker-compose exec router02 mongo --port 27018
 ```
 
 ### Resetting the Cluster
