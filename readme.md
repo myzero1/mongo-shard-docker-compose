@@ -69,6 +69,9 @@ Its as simple as:
 
 ```
 docker-compose exec router mongo
+docker-compose exec router01 mongo
+docker-compose exec router01 mongo --port 27017
+docker-compose exec router02 mongo --port 27018
 ```
 
 ### Resetting the Cluster
